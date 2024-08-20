@@ -1,0 +1,47 @@
+name: infotech
+
+services:
+  nginx:
+    image: nginx:alpine
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "8040:80"
+    networks:
+      - it-network
+
+  database:
+    image: mariadb
+    environment:
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: it
+    volumes:
+      - database_data:/var/lib/mysql
+      - ./docker/dumps:/dumps
+    working_dir: /dumps
+    networks:
+      - it-network
+
+  php-fpm:
+    build:
+      context: docker/php-fpm
+      dockerfile: Dockerfile
+    depends_on:
+      - database
+    volumes:
+      - ./:/app
+      - ./runtime:/app/runtime
+    working_dir: /app
+    user: 1000:1000
+    networks:
+      - it-network
+
+networks:
+  it-network:
+
+volumes:
+  database_data:
