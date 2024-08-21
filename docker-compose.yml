@@ -23,6 +23,8 @@ services:
       - database_data:/var/lib/mysql
       - ./docker/dumps:/dumps
     working_dir: /dumps
+    ports:
+      - "3300:3306"
     networks:
       - it-network
 
