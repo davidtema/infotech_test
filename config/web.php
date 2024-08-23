@@ -7,6 +7,7 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'basic',
+    'name' => 'Bookstore',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log', 'queue', Bootstrap::class],
     'aliases' => [

@@ -15,20 +15,11 @@ final class Bootstrap implements BootstrapInterface
 {
     public function bootstrap($app): void
     {
-        $container = \Yii::$container;
-
         Event::on(Book::class, BaseActiveRecord::EVENT_AFTER_INSERT, function (AfterSaveEvent $e) {
             $handler = \Yii::createObject(BookAfterSaveEventHandler::class);
             /**@var Book $book */
             $book = $e->sender;
             $handler($book);
         });
-
-        //        Event::on(Book::class, BaseActiveRecord::EVENT_AFTER_UPDATE, function (AfterSaveEvent $e) {
-        //            $handler = \Yii::createObject(BookAfterSaveEventHandler::class);
-        //            /**@var Book $book */
-        //            $book = $e->sender;
-        //            $handler($book);
-        //        });
     }
 }

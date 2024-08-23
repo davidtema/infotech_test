@@ -15,7 +15,14 @@ Telegram: [@wolfandman](https://t.me/wolfandman)
 
 1. [CRUD книг](http://localhost:8040/index.php?r=book-crud%2Findex). Права: пользователь.
 2. [ТОП-10 авторов с наибольшим числом книг за год](http://localhost:8040/index.php?r=report%2Findex). Права: все.
-3. Предусмотрена отправка SMS через систему Event > EventHandler > Queue::push
+3. Предусмотрена отправка SMS через систему Event > EventHandler > Queue::push. Код на данный момент ещё не реализован.
+
+## Пользователь
+
+[Вход](http://localhost:8040/index.php?r=site%2Flogin)
+
+Логин: demo \
+Пароль: demo
 
 ## Топ-10
 
