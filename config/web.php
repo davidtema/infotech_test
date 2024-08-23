@@ -9,7 +9,7 @@ $config = [
     'id' => 'basic',
     'name' => 'Bookstore',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log', 'queue', Bootstrap::class],
+    'bootstrap' => ['log', Bootstrap::class],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
@@ -45,18 +45,6 @@ $config = [
             ],
         ],
         'db' => $db,
-        'queue' => [
-            'class' => \yii\queue\amqp_interop\Queue::class,
-            'port' => 5672,
-            'user' => 'guest',
-            'password' => 'guest',
-            'queueName' => 'queue',
-            'driver' => yii\queue\amqp_interop\Queue::ENQUEUE_AMQP_LIB,
-            // или
-            'dsn' => 'amqp://guest:guest@localhost:5672/%2F',
-            // или
-//            'dsn' => 'amqp:',
-        ],
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,

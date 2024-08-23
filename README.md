@@ -8,8 +8,11 @@ Telegram: [@wolfandman](https://t.me/wolfandman)
 
 1. Build: `docker compose build --no-cache`
 2. Run: `docker compose up --pull always -d --wait`
-3. Open `http://localhost:8040`
-4. Stop: `docker compose down --remove-orphans`
+3. Determine the php container: `docker ps --format "{{.Names}}"`
+4. Connect to php container: `docker exec -ti infotech-php-fpm-1 bash`
+5. Install dependencies via composer: `composer install`
+6. Open `http://localhost:8040`
+7. Stop: `docker compose down --remove-orphans`
 
 # Соответствие с заданием
 
