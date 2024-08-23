@@ -11,7 +11,7 @@ services:
     networks:
       - it-network
 
-  database:
+  db:
     image: mariadb
     environment:
       MYSQL_USER: root

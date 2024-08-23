@@ -11,8 +11,9 @@ Telegram: [@wolfandman](https://t.me/wolfandman)
 3. Determine the php container: `docker ps --format "{{.Names}}"`
 4. Connect to php container: `docker exec -ti infotech-php-1 bash`
 5. Install dependencies via composer: `composer install`
-6. Open `http://localhost:8040`
-7. Stop: `docker compose down --remove-orphans`
+6. Run migrations: `php yii migrate` 
+7. Open `http://localhost:8040`
+8. Stop: `docker compose down --remove-orphans`
 
 # Соответствие с заданием
 
